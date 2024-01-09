@@ -22,14 +22,27 @@ const map <char, string> ascii_to_morse = {
     {'-',"-....-"}, {'/',"-..-."}
 };
 
-void MorseEncode(string sInput) {
+std::string sUserInput;
+
+void InputStringToCharArr(string sInput) {
+    // Initialize character array 
+    char* c_InputStringToChar_a = new char[sInput.length() + 1];
+
+    // Ensure null at start
+    c_InputStringToChar_a[sInput.length()] = '\0';
+
     for (auto c : sInput) {
-        char
+        c_InputStringToChar_a[c] = sInput[c];
+
+        std::cout << c_InputStringToChar_a[c] + ", ";
     }
 }
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Enter a string:\n";
+    std::cin >> sUserInput;
+
+    InputStringToCharArr(sUserInput);
 }
 
