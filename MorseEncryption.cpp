@@ -22,14 +22,14 @@ const map <char, string> ascii_to_morse = {
     {'-',"-....-"}, {'/',"-..-."}
 };
 
-std::string sUserInput;
+std::string sUserInput = "";
 
 void InputStringToCharArr(string sInput) {
     // Initialize character array 
     char* c_InputStringToChar_a = new char[sInput.length() + 1];
 
     // Ensure null at start
-    c_InputStringToChar_a[sInput.length()] = '\0';
+    c_InputStringToChar_a[sInput.length()] = NULL;
 
     for (auto c : sInput) {
         c_InputStringToChar_a[c] = sInput[c];
@@ -44,5 +44,7 @@ int main()
     std::cin >> sUserInput;
 
     InputStringToCharArr(sUserInput);
+
+    return 0;
 }
 
