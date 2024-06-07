@@ -1,50 +1,34 @@
 #include <iostream>
 #include <map>
+#include <cctype>
 
 using namespace std;
 
-const map <char, string> ascii_to_morse = {
-    {'A',".-"},     {'B',"-..."},   {'C',"-.-."},   {'D',"-.."},
-    {'E',"."},      {'F',"..-."},   {'G',"--."},    {'H',"...."},
-    {'I',".."},     {'J',".---"},   {'K',"-.-"},    {'L',".-.."},
-    {'M',"--"},     {'N',"-."},     {'O',"---"},    {'P',".--."},
-    {'Q',"--.-"},   {'R',".-."},    {'S',"..."},    {'T',"-"},
-    {'U',"..-"},    {'V',"...-"},   {'W',".--"},    {'X',"-..-"},
-    {'Y',"-.--"},   {'Z',"--.."},
+//const map <int, string, int> conversion_table = {
+//    {'1',".----", 0b10000},  {'2',"..---", 0b11000},  {'3',"...--", 0b11100},
+//    {'4',"....-", 0b11110},  {'5',".....", 0b11111},  {'6',"-....",0b01111},
+//    {'7',"--...", 0b00111},  {'8',"---..", 0b00011},  {'9',"----.",0b00001},
+//    {'0',"-----", 0b00000},
+//
+//    {'.',".-.-.-"}, {',',"--..--"}, {'?',"..--.."}, {'=',"-...-"},
+//    {'!',"-.-.--"}, {';',"-.-.-."}, {':',"---..."}, {'+',".-.-."},
+//    {'-',"-....-"}, {'/',"-..-."}
+//};
 
-    {'1',".----"},  {'2',"..---"},  {'3',"...--"},
-    {'4',"....-"},  {'5',"....."},  {'6',"-...."},
-    {'7',"--..."},  {'8',"---.."},  {'9',"----."},
-    {'0',"-----"},
 
-    {'.',".-.-.-"}, {',',"--..--"}, {'?',"..--.."}, {'=',"-...-"},
-    {'!',"-.-.--"}, {';',"-.-.-."}, {':',"---..."}, {'+',".-.-."},
-    {'-',"-....-"}, {'/',"-..-."}
-};
+// okay so look at the thing above, take that and check obsidian notes. lets make this thing happen <3
 
-std::string sUserInput = "";
+int main() {
+    char a = '4';
+    char b = ',';
+    
+    int ca = a;
+    char& cb = b;
 
-void InputStringToCharArr(string sInput) {
-    // Initialize character array 
-    char* c_InputStringToChar_a = new char[sInput.length() + 1];
-
-    // Ensure null at start
-    c_InputStringToChar_a[sInput.length()] = NULL;
-
-    for (auto c : sInput) {
-        c_InputStringToChar_a[c] = sInput[c];
-
-        std::cout << c_InputStringToChar_a[c] + ", ";
-    }
-}
-
-int main()
-{
-    std::cout << "Enter a string:\n";
-    std::cin >> sUserInput;
-
-    InputStringToCharArr(sUserInput);
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << ca << std::endl;
+    std::cout << cb << std::endl;
 
     return 0;
-}
-
+};
