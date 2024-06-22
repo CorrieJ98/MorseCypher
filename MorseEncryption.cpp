@@ -1,50 +1,43 @@
 #include <iostream>
 #include <map>
-#include <cctype>
+#include <cstring>
 
 using namespace std;
 
-struct morsepair {
-    char c;
-    string morse = "";
+map <char, int> conversion_table = {
+
+    // Takes given character from string and converts it into binary using its morse-code translation
+    // 1 = dot  0 = dash
+
+    // Literal morse translation
+    {'1', 0b10000},  {'2', 0b11000},  {'3', 0b11100},
+    {'4', 0b11110},  {'5', 0b11111},  {'6', 0b01111},
+    {'7', 0b00111},  {'8', 0b00011},  {'9', 0b00001},
+    {'0', 0b00000},  
+    
+    {'A', 0b10},     {'B', 0b0111},   {'C', 0b0101},   {'D', 0b011},
+    {'E', 0b1},      {'F', 0b1101},   {'G', 0b001},    {'H', 0b1111},
+    {'I', 0b11},     {'J', 0b1000},   {'K', 0b010},    {'L', 0b1011},
+    {'M', 0b00},     {'N', 0b01},     {'O', 0b000},    {'P', 0b1001},
+    {'Q', 0b0010},   {'R', 0b101},    {'S', 0b111},    {'T', 0b0},
+    {'U', 0b110},    {'V', 0b1110},   {'W', 0b100},    {'X', 0b0110},
+    {'Y', 0b0100},   {'Z', 0b0011},
+
+    {'.', 0b101010}, {',', 0b001100}, {'?', 0b110011}, {'=', 0b01110},
+    {'!', 0b010100}, {';', 0b010101}, {':', 0b000111}, {'+', 0b10101},
+    {'-', 0b011110}, {'/', 0b01101},
+
+
+    // Summed from components
+    {'\n', 0b00001110},   {' ', 0b00011000},    {'\0', 0b0000000}
 };
-
-//const map <morsepair, int> conversion_table = {
-//    {{'1',".----"}, 0b10000},  {{'2',"..---"}, 0b11000},  {{'3',"...--"}, 0b11100},
-//    {{'4',"....-"}, 0b11110},  {{'5',"....."}, 0b11111},  {{'6',"-...."}, 0b01111},
-//    {{'7',"--..."}, 0b00111},  {{'8',"---.."}, 0b00011},  {{'9',"----."}, 0b00001},
-//    {{'0',"-----"}, 0b00000},
-//
-//    {{'.',".-.-.-"},0b101010}, {{',',"--..--"},0b001100}, {{'?',"..--.."},0b110011}, {{'=',"-...-"},0b01110},
-//    {{'!',"-.-.--"},0b010100}, {{';',"-.-.-."},0b010101}, {{':',"---..."},0b000111}, {{'+',".-.-."},0b10101},
-//    {{'-',"-....-"},0b011110}, {{'/',"-..-."}, 0b01101}
-//};
-
-const map <morsepair, int> conversion_table = {
-    {{'1',".----"}, 16},  {{'2',"..---"}, 24},  {{'3',"...--"}, 28},
-    {{'4',"....-"}, 30},  {{'5',"....."}, 31},  {{'6',"-...."}, 15},
-    {{'7',"--..."}, 7},  {{'8',"---.."}, 3},  {{'9',"----."}, 1},
-    {{'0',"-----"}, 0},
-
-    {{'.',".-.-.-"},42}, {{',',"--..--"},12}, {{'?',"..--.."},51}, {{'=',"-...-"},14},
-    {{'!',"-.-.--"},20}, {{';',"-.-.-."},21}, {{':',"---..."},7}, {{'+',".-.-."},21},
-    {{'-',"-....-"},30}, {{'/',"-..-."}, 13}
-};
-
-
-// Severity	Code	Description	Project	File	Line	Suppression State
-// Error	C2676	binary '<': 'const _Ty' does not define this operator or a conversion to a type acceptable to the predefined operator MorseEncryption	C : \Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.36.32532\include\xstddef	142
-
 
 int main() {
     return 0;
 };
 
-void MakeCharArray(string sInput, char cOut[]) {
 
-    // +1 to account for the null character
-    cOut[sInput.length() + 1];
-    strcpy(cOut, sInput.c_str());
+void MakeCharArray(string sInput, char* chArray[]) {
+    unsigned long l = sizeof sInput;
+    strcpy_s(*chArray, l, sInput);
 }
-
-
