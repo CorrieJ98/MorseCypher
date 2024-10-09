@@ -15,8 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MorseEncryption.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="token.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chtransform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
